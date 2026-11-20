@@ -58,7 +58,7 @@ bool validateAngle(String input, int *value)
 
 void  moveServo(ServoMotor *m, int final_destination){
   int step = m->angle < final_destination ? 1 : -1;
-  while(m->angle < final_destination){
+  while((step == 1) ? m->angle < final_destination : m->angle > final_destination){
     m->angle += step;
     m->servo->write(m->angle);
     delay(15);

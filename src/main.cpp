@@ -38,6 +38,7 @@ void loop()
   if (BTSerial.available())
   {
     String input = BTSerial.readStringUntil('\n');
+    Serial.println(input);
     input.trim();
     int servopin = getDestinationMotorpin(input);
     switch (servopin)
